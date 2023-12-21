@@ -1,0 +1,6 @@
+books/__pycache__
+books/migrations/__pycache__
+bookslibrary/__pycache__
+
+
+.prettierignore
