@@ -1,0 +1,16 @@
+{% include "books/main.html" %}
+
+{% block content %}
+
+<div class="card" style="width: 30rem;">
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h5 class="card-title">Вы действительно хотите удалить {{ book.title }} из библиотеки?</h5>
+            <a class="btn btn-outline-primary" href="{% url 'book' book.id %}" role="button">Назад</a>
+            <input class="btn btn-outline-danger" type="submit" value="Удалить">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% include "books/main.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a class="btn btn-outline-primary" href="{% url 'books' %}" role="button">Назад</a>
+    <input class="btn btn-outline-danger" type="submit" value="Сохранить">
+</form>
+
+
+{% endblock content %}
