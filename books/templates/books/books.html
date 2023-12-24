@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-sm-12 d-flex justify-content-center">
             <div class="mx-auto my-3">
@@ -34,6 +34,51 @@
 
 
 {% endfor %}
+
+{% for book in books %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <div class="card mx-auto my-1" style="width: 40rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Название: </strong>{{ book.title }}</h5>
+                    <p class="card-text"><strong>Автор: </strong>{{ book.author }}</p>
+                    <a class="btn btn-outline-primary btn-sm card-link" href="{% url 'book' book.id %}" role="button">
+                        <i class="fa-solid fa-circle-info"></i> 
+                        Подробнее
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% for book in books %}
+
+<div class="container pb-5 mb-4">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <div class="card mx-auto my-1" style="width: 40rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Название: </strong>{{ book.title }}</h5>
+                    <p class="card-text"><strong>Автор: </strong>{{ book.author }}</p>
+                    <a class="btn btn-outline-primary btn-sm card-link" href="{% url 'book' book.id %}" role="button">
+                        <i class="fa-solid fa-circle-info"></i> 
+                        Подробнее
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endfor %}
+
 
 
 
