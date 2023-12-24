@@ -2,14 +2,32 @@
 
 {% block content %}
 
-<div class="card" style="width: 30rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{ book.title }}</h5>
-        <p class="card-text">{{ book.author }}</p>
-        <p class="card-text">{{ book.bookshelf }}</p>
-        <p class="card-text">{{ book.shelf }}</p>
-        <a class="btn btn-outline-warning card-link" href="{% url 'update-book' book.id %}" role="button">Изменить</a>
-        <a class="btn btn-outline-danger" href="{% url 'delete-book' book.id %}" role="button">Удалить</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <div class="card mx-auto my-3" style="width: 40rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Название: </strong>{{ book.title }}</h5>
+                    <p class="card-text"><strong>Автор: </strong>{{ book.author }}</p>
+                    <p class="card-text"><strong>Хранение: </strong>{{ book.bookshelf }}</p>
+                    <p class="card-text"><strong>Полка: </strong>{{ book.shelf }}</p>
+                    <p class="card-text"><strong>Описание: </strong>{{ book.description }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-outline-primary btn-sm card-link" href="{% url 'books' %}" role="button">
+                            <i class="fa-solid fa-chevron-left"></i> Назад
+                        </a>
+                        <div class="ml-auto">
+                            <a class="btn btn-outline-warning btn-sm card-link mx-1" href="{% url 'update-book' book.id %}" role="button">
+                                <i class="fa-solid fa-pencil"></i> Изменить
+                            </a>
+                            <a class="btn btn-outline-danger btn-sm mx-1" href="{% url 'delete-book' book.id %}" role="button">
+                                <i class="fa-solid fa-trash"></i> Удалить
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -6,12 +6,13 @@ from django.db import models
 
 class Book(models.Model):
     BOOKSHELF_TYPE = (
-        ('main', 'Main'),
-        ('second', 'Second'),
-        ('third', 'Third')
+        ('Шкаф №1', 'Шкаф №1'),
+        ('Шкаф №2', 'Шкаф №2'),
+        ('Полки', 'Полки')
     )
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
+    description = models.TextField(null=True, blank=True)
     bookshelf = models.CharField(max_length=100, choices=BOOKSHELF_TYPE)
     shelf = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
