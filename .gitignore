@@ -1,6 +1,8 @@
 books/__pycache__
 books/migrations/__pycache__
 bookslibrary/__pycache__
+users/__pycache__
+users/migrations/__pycache__
 node_modules/
 
 
