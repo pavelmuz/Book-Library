@@ -12,6 +12,20 @@
     </div>
 </div>
 
+<div class="container mb-4" style="max-width: 40rem;">
+    <form action="{% url 'books' %}" method="get" class="row g-2" id="searchForm">
+        <div class="col">
+            <input class="form-control" type="text" name="search_query" value="{{ search_query }}" placeholder="Ищите по названию или автору" aria-label="default input example">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fa-solid fa-magnifying-glass"></i> Найти
+            </button>
+        </div>
+    </form>
+</div>
+
+
 {% for book in books %}
 
 <div class="container">
@@ -31,57 +45,43 @@
     </div>
 </div>
 
-
-
 {% endfor %}
 
-{% for book in books %}
+{% if books.has_other_pages %}
+<div class="container pb-5">
+    <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+        <ul class="pagination">
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 d-flex justify-content-center">
-            <div class="card mx-auto my-1" style="width: 40rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><strong>Название: </strong>{{ book.title }}</h5>
-                    <p class="card-text"><strong>Автор: </strong>{{ book.author }}</p>
-                    <a class="btn btn-outline-primary btn-sm card-link" href="{% url 'book' book.id %}" role="button">
-                        <i class="fa-solid fa-circle-info"></i> 
-                        Подробнее
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+            {% if books.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ books.previous_page_number }}" aria-label="Previous" data-page="{{ books.previous_page_number }}">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% for page in custom_range %}
+
+            {% if page == books.number %}
+            <li class="page-item"><a class="page-link active" href="?page={{ page }}" data-page="{{ page }}">{{ page }}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ page }}" data-page="{{ page }}">{{ page }}</a></li>
+            {% endif %}
+
+            {% endfor %}
+
+            {% if books.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </nav>    
 </div>
-
-{% endfor %}
-
-{% for book in books %}
-
-<div class="container pb-5 mb-4">
-    <div class="row">
-        <div class="col-sm-12 d-flex justify-content-center">
-            <div class="card mx-auto my-1" style="width: 40rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><strong>Название: </strong>{{ book.title }}</h5>
-                    <p class="card-text"><strong>Автор: </strong>{{ book.author }}</p>
-                    <a class="btn btn-outline-primary btn-sm card-link" href="{% url 'book' book.id %}" role="button">
-                        <i class="fa-solid fa-circle-info"></i> 
-                        Подробнее
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-{% endfor %}
-
-
-
-
+{% endif %}
 
 
 

@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #f3eeea;
 }
 
@@ -8,4 +8,16 @@ body {
 
 #page-footer {
   background-color: #b0a695;
+} */
+
+body {
+  background-color: #eef5ff;
+}
+
+#page-navbar {
+  background-color: #86b6f6;
+}
+
+#page-footer {
+  background-color: #86b6f6;
 }

@@ -1,13 +1,21 @@
 from django.shortcuts import render, redirect
 from .models import Book
 from .forms import BookForm
+from .utils import search_books, paginate_books
 
 # Create your views here.
 
 
 def books_view(request):
-    books = Book.objects.all()
-    context = {'books': books}
+    books_list, search_query = search_books(request)
+
+    custom_range, books_list = paginate_books(request, books_list, 3)
+
+    context = {
+        'books': books_list,
+        'search_query': search_query,
+        'custom_range': custom_range
+    }
     return render(request, 'books/books.html', context)
 
 
