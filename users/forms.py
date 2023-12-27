@@ -7,6 +7,6 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'email', 'username', 'password1', 'password2']
 
-        labes = {
+        labels = {
             'first_name': 'Full Name'
         }
