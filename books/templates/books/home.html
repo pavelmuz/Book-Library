@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 d-flex justify-content-center">
-            <div class="card mx-auto my-3" style="width: 40rem;">
+            <div class="card mx-auto mb-3" style="width: 40rem;">
                 <div class="card-body">
                     <p class="card-text">
                         Данный проект создан для удобной каталогизации вашей библиотеки книг.
@@ -23,11 +23,14 @@
                     <p class="card-text">Заполнив книжную карточку и добавив её в картотеку,
                          вы с легкостью сможете найти книгу в ваших шкафах и книжных полках.
                     </p>
+
+                    {% if not request.user.is_authenticated %}
                     <p class="card-text">Для работы с Библиотекой 
-                        <a href="{% url 'register' %}">создайте</a> аккаунт 
-                        или <a href="{% url 'login' %}">войдите</a>
-                         в уже существующий аккаунт
+                        <a href="{% url 'register' %}">создайте</a> аккаунт или 
+                        <a href="{% url 'login' %}">войдите</a> в уже существующий аккаунт.
                     </p>
+                    {% endif %}
+
                 </div>
             </div>
         </div>

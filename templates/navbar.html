@@ -23,12 +23,6 @@
           >
             Добавить книгу
           </a>
-          {% comment %} <a 
-            class="nav-link{% if request.path == '/about/' %} active{% endif %}" 
-            href="{% url 'about' %}"
-          >
-            О проекте
-          </a> {% endcomment %}
           <a 
             class="nav-link{% if request.path == '/about/' %} active{% endif %}" 
             href="{% url 'logout' %}"
