@@ -40,13 +40,7 @@
             class="nav-link{% if request.path == '/about/' %} active{% endif %}" 
             href="{% url 'login' %}"
           >
-            Войти
-          </a>
-          <a 
-            class="nav-link{% if request.path == '/about/' %} active{% endif %}" 
-            href="{% url 'register' %}"
-          >
-            Регистрация
+            Войти / Регистрация
           </a>
         {% endif %}
         

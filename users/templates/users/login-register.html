@@ -4,31 +4,84 @@
 
 {% if page == 'login' %}
 
-<h1 class="mt-5">Login page</h1>
-
-<form action="" method="post">
-    {% csrf_token %}
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" placeholder="Your username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="passowrd" placeholder="••••••••">
-    <input type="submit" value="Log In">
-</form>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <div class="card mx-auto my-3" style="width: 40rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Войти в аккаунт</strong></h5>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <label for="username" class="form-label py-2" >Имя пользователя:</label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="username" 
+                            class="form-control py-2"
+                        >
+                        <label for="password" class="form-label py-2">Пароль:</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="passowrd" 
+                            class="form-control py-2"
+                        >
+                        <div class="d-flex justify-content-between my-3">
+                            <button type="submit" class="btn btn-outline-success btn-sm">
+                                <i class="fa-solid fa-right-to-bracket"></i> Войти
+                            </button>
+                        </div>
+                        
+                    </form>
+                    <p>Уще нет аккаунта? <a href="{% url 'register' %}">Зарегистрируйтесь</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% else %}
 
-<h1 class="mt-5">Registration page</h1>
-
-<form action="" method="post">
-    {% csrf_token %}
-
-    {% for field in form %}
-        {{ field.label }}
-        {{ field }}
-    
-    {% endfor %}
-    <input type="submit" value="Register">
-</form>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <div class="card mx-auto my-3" style="width: 40rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Создать аккаунт</strong></h5>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.first_name.id_for_label }} class="form-label py-2"">Полное имя:</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }} class="form-label py-2"">Электронная почта:</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.username.id_for_label }} class="form-label py-2"">Имя пользователя:</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.password1.id_for_label }} class="form-label py-2"">Пароль:</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.password2.id_for_label }} class="form-label py-2"">Подтвердите пароль:</label>
+                            {{ form.password2 }}
+                        </div>
+                        <div class="d-flex justify-content-between my-3">
+                            <button type="submit" class="btn btn-outline-success btn-sm">
+                                <i class="fa-solid fa-right-to-bracket"></i> Создать аккаунт
+                            </button>
+                        </div>
+                    </form>                    
+                    <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войдите</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endif %}
 

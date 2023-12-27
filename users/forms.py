@@ -8,5 +8,17 @@ class CreateUserForm(UserCreationForm):
         fields = ['first_name', 'email', 'username', 'password1', 'password2']
 
         labels = {
-            'first_name': 'Full Name'
+            'first_name': 'Полное имя:',
+            'email': 'Электронная почта:',
+            'username': 'Имя пользователя:',
+            'password1': 'Пароль:',
+            'password2': 'Подтвердите пароль',
         }
+
+    def __init__(self, *args, **kwargs):
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({
+                'class': 'form-control my-2'
+            })

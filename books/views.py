@@ -69,5 +69,5 @@ def delete_book_view(request, pk):
     return render(request, 'books/delete-book.html', context)
 
 
-def about_view(request):
-    return render(request, 'books/about.html')
+def home_view(request):
+    return render(request, 'books/home.html')
