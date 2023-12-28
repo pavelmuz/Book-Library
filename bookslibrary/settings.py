@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books.apps.BooksConfig',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,32 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+PWA_APP_NAME = 'Library'
+PWA_APP_DESCRIPTION = "App to catalog your books"
+PWA_APP_THEME_COLOR = ''
+PWA_APP_BACKGROUND_COLOR = ''
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/library.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/images/library.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = []
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+PWA_APP_SHORTCUTS = []
+PWA_APP_SCREENSHOTS = []
+PWA_APP_DEBUG_MODE = False
