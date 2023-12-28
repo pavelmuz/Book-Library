@@ -7,14 +7,6 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'email', 'username', 'password1', 'password2']
 
-        labels = {
-            'first_name': 'Полное имя:',
-            'email': 'Электронная почта:',
-            'username': 'Имя пользователя:',
-            'password1': 'Пароль:',
-            'password2': 'Подтвердите пароль',
-        }
-
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
 
