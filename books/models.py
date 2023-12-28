@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from users.models import Profile
 
 # Create your models here.
 
@@ -10,6 +11,8 @@ class Book(models.Model):
         ('Шкаф №2', 'Шкаф №2'),
         ('Полки', 'Полки')
     )
+    owner = models.ForeignKey(
+        Profile, null=True, blank=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)

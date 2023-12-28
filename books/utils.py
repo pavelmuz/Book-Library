@@ -32,11 +32,12 @@ def paginate_books(request, books_list, results):
 
 
 def search_books(request):
+    profile = request.user.profile
     search_query = ''
     if request.GET.get('search_query'):
         search_query = request.GET.get('search_query')
-
-    books_list = Book.objects.distinct().filter(
+    books_list = Book.objects.filter(owner=profile)
+    books_list = books_list.distinct().filter(
         Q(title__icontains=search_query) |
         Q(author__icontains=search_query)
     )

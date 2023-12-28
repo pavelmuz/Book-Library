@@ -5,5 +5,5 @@ users/__pycache__
 users/migrations/__pycache__
 node_modules/
 
-
+.env
 .prettierignore

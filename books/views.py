@@ -30,12 +30,15 @@ def book_view(request, pk):
 
 @login_required(login_url='login')
 def add_book_view(request):
+    profile = request.user.profile
     form = BookForm()
 
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_book = form.save(commit=False)
+            new_book.owner = profile
+            new_book.save()
             return redirect('books')
 
     context = {'form': form}
@@ -44,7 +47,8 @@ def add_book_view(request):
 
 @login_required(login_url='login')
 def update_book(request, pk):
-    book = Book.objects.get(id=pk)
+    profile = request.user.profile
+    book = profile.book_set.get(id=pk)
     form = BookForm(instance=book)
 
     if request.method == 'POST':
