@@ -151,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PWA_APP_NAME = 'Library'
 PWA_APP_DESCRIPTION = "App to catalog your books"
-PWA_APP_THEME_COLOR = ''
+PWA_APP_THEME_COLOR = '#86b6f6'
 PWA_APP_BACKGROUND_COLOR = ''
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
