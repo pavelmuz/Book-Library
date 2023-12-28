@@ -13,11 +13,11 @@
       rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
       crossorigin="anonymous"
     >
-    <link rel="stylesheet" href="{% static "styles/styles.css" %}">
+    {% comment %} <link rel="stylesheet" href="{% static "styles/styles.css" %}"> {% endcomment %}
     <script src="https://kit.fontawesome.com/70a800b184.js" crossorigin="anonymous"></script>
   </head>
   </head>
-  <body>
+  <body style="background-color: #eef5ff;">
 
     {% include "navbar.html" %}
 
@@ -34,6 +34,6 @@
       crossorigin="anonymous"
     >
     </script>
-    <script src="{% static "js/main.js" %}"></script>
+    {% comment %} <script src="{% static "js/main.js" %}"></script> {% endcomment %}
   </body>
 </html>
