@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from .forms import CreateUserForm
@@ -24,8 +25,8 @@ def login_user(request):
         if user is not None:
             login(request, user)
             return redirect('books')
-
-        print('Username OR password is incorrect')
+        else:
+            print('Username OR password is incorrect')
 
     context = {'page': 'login'}
 

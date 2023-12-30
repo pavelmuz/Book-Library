@@ -5,14 +5,16 @@ from .models import Book
 class BookForm(ModelForm):
     class Meta:
         model = Book
-        fields = ['title', 'author', 'description', 'bookshelf', 'shelf']
+        fields = ['title', 'author', 'description',
+                  'bookshelf', 'shelf', 'placement']
 
         labels = {
             'title': 'Название:',
             'author': 'Автор:',
             'description': 'Описание:',
             'bookshelf': 'Шкаф:',
-            'shelf': 'Полка:'
+            'shelf': 'Полка:',
+            'placement': 'Расположение на полке:'
         }
 
     def __init__(self, *args, **kwargs):
