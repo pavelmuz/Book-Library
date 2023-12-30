@@ -39,6 +39,16 @@
         {% endif %}
         
       </div>
+      <div class="navbar-nav ms-auto order-last">
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+          <a 
+            class="nav-link" 
+            href="{% url 'admin:index' %}"
+          >
+            <strong>Панель администрации</strong>
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </nav>
