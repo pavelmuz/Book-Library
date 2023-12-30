@@ -37,3 +37,5 @@ urlpatterns = [
         template_name='reset-password-complete.html'),
         name='password_reset_complete')
 ]
+
+handler404 = 'bookslibrary.views.page_not_found'
