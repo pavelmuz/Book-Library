@@ -7,5 +7,6 @@ node_modules/
 
 .env
 .prettierignore
+.DS_Store
 Dockerfile
 docker-compose.yml
